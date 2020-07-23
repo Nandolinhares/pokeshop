@@ -11,7 +11,7 @@ import Logo from '../../assets/images/poke.png';
 
 export default function AppBarI({ classes, menuId, handleNotificationsMenuOpen }) {
     return (
-        <AppBar position="static" className={classes.appbar}>
+        <AppBar position="fixed" className={classes.appbar}>
             <Toolbar>
                 {/* Logo da Pokeshop */}
                 <section className={classes.logo}>

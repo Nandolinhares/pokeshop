@@ -80,7 +80,6 @@ const useStyles = makeStyles((theme) => ({
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 0.15),
-      marginLeft: 0,
       marginLeft: theme.spacing(3),
       width: '50%',
 
@@ -99,7 +98,6 @@ const useStyles = makeStyles((theme) => ({
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
       border: '1px solid #49896F',
-      marginLeft: 0,
       marginLeft: theme.spacing(3),
       width: '80%',
       marginTop: 18,
