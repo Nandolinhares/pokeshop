@@ -3,6 +3,9 @@ import React from 'react';
 import './App.css';
 //Lib responsável pelo tratamento das rotas
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+//Redux
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 //Components
 import Navbar from './Components/Navbar';
@@ -12,12 +15,14 @@ import Home from './Pages/Home';
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path='/' component={Home} />
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Home} />
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
 

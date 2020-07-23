@@ -74,7 +74,7 @@ export default function Home() {
     return (
         <main className={classes.main}>
             <Grid container spacing={2}>
-                <Grid item sm={9} xs={12}>
+                <Grid item xs={12} sm={12} md={8}>
                     <h1 className={classes.title}>Pokemon do tipo Planta</h1>
                     <section className={classes.pokemonGrid}>
                         {pokemonType.map(pokemon => {
@@ -99,7 +99,7 @@ export default function Home() {
                         activeClassName={"active"}
                     />
                 </Grid>
-                <Grid item sm={3} xs={12}>
+                <Grid item xs={12} sm={12} md={4}>
                     <Shopcar />
                 </Grid>
             </Grid>
