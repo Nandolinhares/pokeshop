@@ -2,22 +2,22 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
+import Logo from '../../assets/images/poke.png';
+
 export default function AppBarI({ classes, menuId, handleNotificationsMenuOpen }) {
     return (
-        <AppBar position="static">
+        <AppBar position="static" className={classes.appbar}>
             <Toolbar>
                 {/* Logo da Pokeshop */}
-                <Typography className={classes.title} variant="h6" noWrap>
-                    Pokeshop
-                </Typography>
+                <section className={classes.logo}>
+                    <img alt="Pokeshop" src={Logo} className={classes.pokeshop} />
+                    <img alt="Pikachu" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" />
+                </section>
                 {/* Barra de busca */}
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>

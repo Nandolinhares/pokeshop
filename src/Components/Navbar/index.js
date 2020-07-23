@@ -4,6 +4,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 //Components
 import AppBar from './AppBar';
 import NotificationsMenu from './NotificationsMenu';
+import SearchMobile from './SearchMobile';
 
 export default function Navbar() {
  //Hook para usar o Css
@@ -36,6 +37,8 @@ export default function Navbar() {
   return (
     <div className={classes.grow}>
       <AppBar classes={classes} menuId={menuId} handleNotificationsMenuOpen={handleNotificationsMenuOpen} />
+      {/* Busca Mobile */}
+      <SearchMobile classes={classes} />
       {/* Menu dentro do íconde notificações */}
       {notificationsMenu}
     </div>
@@ -51,16 +54,27 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(2),
     },
   
-    //Logo
-  
-    title: {
-      display: 'flex',
-      //Aqui são os efeitos para a logo no tamanho de tela sm +
-      [theme.breakpoints.up('sm')]: {
-        display: 'block',
-        flex: 2,
-      },
+    // Background Navbar
+    appbar: {
+      backgroundColor: '#49896F'
     },
+    
+    //Logo
+    logo: {
+      display: 'flex',
+      alignSelf: 'center',
+      [theme.breakpoints.down('xs')]: {
+        marginLeft: '10%',
+      },
+    },  
+  
+    //Poke
+    pokeshop:{
+      width: 140,
+      height: 58,
+      alignSelf: 'center'
+    },      
+
     //Barra de busca
     search: {
       position: 'relative',
@@ -69,9 +83,30 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 0,
       marginLeft: theme.spacing(3),
       width: '50%',
+
+      [theme.breakpoints.down('xs')]: {
+        display: 'none'
+      },
+
       //Barra de busca quando o tamanho da tela for sm +
       [theme.breakpoints.up('sm')]: {
         width: '64%',
+      },
+    },
+
+    //Barra de busca mobile
+    searchMobile: {
+      position: 'relative',
+      borderRadius: theme.shape.borderRadius,
+      border: '1px solid #49896F',
+      marginLeft: 0,
+      marginLeft: theme.spacing(3),
+      width: '80%',
+      marginTop: 18,
+
+      //Barra de busca quando o tamanho da tela for sm +
+      [theme.breakpoints.up('sm')]: {
+        display: 'none'
       },
     },
     //Ícone da busca
