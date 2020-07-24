@@ -35,7 +35,7 @@ export default function Shopcar() {
             <section>
                 {myPokemonList.map(pokemon => {
                     return(
-                        <section key={pokemon.pokemonName}>
+                        <section key={Math.random() * 100000}>
                             <PokemonList pokemon={pokemon} />
                         </section>
                     )
@@ -48,7 +48,7 @@ export default function Shopcar() {
                 <section>
                     <div className={classes.totalPriceDiv}>
                         <h4 className={classes.totalPrice}>Total</h4>
-                        <h4 className={classes.totalPrice}>{totalPrice}</h4>
+                        <h4 className={classes.totalPrice}>R${totalPrice},00</h4>
                     </div>
                     <Button variant="contained" className={classes.buyButton}>Comprar</Button>
                 </section>

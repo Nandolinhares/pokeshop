@@ -19,6 +19,7 @@ export default function PokemonList({ pokemon }) {
             <img alt={pokemon.pokemonName} src={pokemon.pokemonImage} />
             <h3 className="Capitalize">{pokemon.pokemonName}</h3>
             <h3>R${pokemon.price},00</h3>
+            <h3>{pokemon.slot}</h3>
         </section>
     )
 }
