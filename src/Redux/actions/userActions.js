@@ -7,3 +7,8 @@ export function addPokemonToCar(pokemon) {
 export const updateTotalPrice = (price) => {
     return { type: 'UPDATE_TOTAL_PRICE', payload: price }
 }
+
+//Remove Pokemon from car
+export const removePokemon = (pokemon) => {
+    return { type: 'REMOVE_POKEMON_SAGA', payload: pokemon }
+}

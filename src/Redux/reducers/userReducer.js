@@ -1,5 +1,6 @@
 import {
     SET_POKEMON,
+    REMOVE_POKEMON,
     SET_TOTAL_PRICE
 } from '../types';
 
@@ -17,6 +18,11 @@ export default function(state = initialState, action) {
                 ...state,
                 myPokemonList: [...state.myPokemonList, action.payload]
             }
+        case REMOVE_POKEMON:
+            return {
+                ...state,
+                myPokemonList: state.myPokemonList.filter(pokemon => action.payload !== pokemon),
+            }    
         case SET_TOTAL_PRICE:
             return {
                 ...state,

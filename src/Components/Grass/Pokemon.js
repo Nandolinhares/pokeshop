@@ -12,41 +12,6 @@ import  {useSelector, useDispatch } from 'react-redux';
 //Actions
 import { addPokemonToCar, updateTotalPrice } from '../../Redux/actions/userActions';
 
-const useStyles = makeStyles((theme) => ({
-    pokemonPaper: {
-        margin: '18px 18px',
-        padding: 18,
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-        width: '80%',
-        [theme.breakpoints.down('xs')]: {
-            width: '100% !important'
-        },
-        [theme.breakpoints.down('lg')]: {
-            width: '64%'
-        },
-    },
-    pokemonImage: {
-        alignSelf: 'center',
-        width: 200,
-        [theme.breakpoints.down('lg')]: {
-            width: 100
-        },
-    },
-    pokemonInfo: {
-        fontSize: 14,
-        textTransform: 'Capitalize'
-    },
-    addButtom: {
-        borderColor: '#49896F',
-        color: '#49896F',
-        [theme.breakpoints.down('lg')]: {
-            fontSize: 12
-        },
-    }
-}))
-
 export default function Pokemon({ pokemon }) {
     //Hook do redux 
     const dispatch = useDispatch();
@@ -101,3 +66,39 @@ export default function Pokemon({ pokemon }) {
         </Paper>
     )
 }
+
+
+const useStyles = makeStyles((theme) => ({
+    pokemonPaper: {
+        margin: '18px 18px',
+        padding: 18,
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+        width: '80%',
+        [theme.breakpoints.down('xs')]: {
+            width: '100% !important'
+        },
+        [theme.breakpoints.down('lg')]: {
+            width: '64%'
+        },
+    },
+    pokemonImage: {
+        alignSelf: 'center',
+        width: 200,
+        [theme.breakpoints.down('lg')]: {
+            width: 100
+        },
+    },
+    pokemonInfo: {
+        fontSize: 14,
+        textTransform: 'Capitalize'
+    },
+    addButtom: {
+        borderColor: '#49896F',
+        color: '#49896F',
+        [theme.breakpoints.down('lg')]: {
+            fontSize: 12
+        },
+    }
+}))

@@ -17,6 +17,23 @@ export function* watchAddPokemonToCar() {
     yield takeLatest('ADD_NEW_POKEMON', addPokemonToCarSaga)
 }
 
+//Worker Remove Pokemon from shopcar
+function* removePokemonSaga(action) {
+    try {
+        yield put({ type: 'LOADING_UI' });
+        yield put({ type: 'REMOVE_POKEMON', payload: action.payload });
+        yield put({ type: 'CLEAR_LOADING_UI' });
+    }
+    catch(err) {
+        console.error(err);
+    }
+}
+
+//Watcher Remove pokemon from shopcar
+export function* watchRemovePokemon() {
+    yield takeLatest('REMOVE_POKEMON_SAGA', removePokemonSaga)
+}
+
 //Worker Update Total 
 function* updateTotalPriceSaga(action) {
     try {
