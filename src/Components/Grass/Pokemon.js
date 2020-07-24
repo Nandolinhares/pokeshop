@@ -43,8 +43,8 @@ export default function Pokemon({ pokemon }) {
     const classes = useStyles();
     const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.pokemon.url.split('/')[6]}.png`;
     const pokemonName = pokemon.pokemon.name;
-    const [randomValue, setRandomValue] = useState(parseInt(Math.random() * (5 - 3) + 3)); //Random value para o Rating
-    const [priceRandom, setPriceRandom] = useState(parseInt(Math.random() * 200));
+    const [randomValue] = useState(parseInt(Math.random() * (5 - 3) + 3)); //Random value para o Rating
+    const [priceRandom] = useState(parseInt(Math.random() * 200));
     
     const handleAddToCar = (pokemonImage, pokemonName, price) => {
         const pokemon = {

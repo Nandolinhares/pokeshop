@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 //Carrinho
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 //Redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //Components
 import PokemonList from './PokemonList';

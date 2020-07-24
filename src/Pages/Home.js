@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 //Lib para consultar a API
 import axios from 'axios';
 //Lib para facilitar a paginação
-import ReactPaginate from 'react-paginate';
+//import ReactPaginate from 'react-paginate';
 //Lib para Style
 import { makeStyles } from '@material-ui/core/styles';
 //Grid
@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 //Components
 import GrassPokemon from '../Components/Grass/Pokemon';
 import Shopcar from '../Components/Shopcar';
+import LoadMore from '../Components/LoadMore';
 
 const useStyles = makeStyles((theme) => ({
     main: {
@@ -35,41 +36,43 @@ export default function Home() {
     //Hook para usar o makeStyles do Material Ui
     const classes = useStyles();
 
+    const [allPokeTypes, setAllPokeTypes] = useState([]);
+    //Tipos de Pokemon carregados a cada 12
     const [pokemonType, setPokemonType] = useState([]);
     const [offset, setOffset] = useState(0);
-    //Padrão de Pokemon mostrados por page
-    const [perPage, setPerPage] = useState(12)
-    const [currentPage, setCurrentPage] = useState(0);
-    //Número de pages
-    const [pageCount, setPageCount] = useState(0);
+    //Padrão de Pokemon mostrados por load
+    const [perLoad] = useState(12);
 
-    //Função para mudar de página
-    const handlePageChange = (event) => {
-        const selectedPage = event.selected;
-        //Exemplo: Página 3 = 3 x 9 = 27. Seleciono depois do Pokemon 27
-        const newOffset = selectedPage * perPage;
+    useEffect(() => {   
+        //Pegando o array contendo informações do pokemon do tipo grass na PokeApi usando o axios get. Depois, salvo no estado pokemonType do component.
+        const getPokemon =  axios.get('https://pokeapi.co/api/v2/type/grass')
+                .then(res => {
+                    //Todos os pokemon do tipo Planta
+                    const pokeType = res.data.pokemon;
+                    setAllPokeTypes(pokeType);
+                    const newOffset = offset + perLoad;
+                    //Aqui eu seleciono os 9 pokemon da respectiva página
+                    setPokemonType(pokeType.slice(offset, newOffset));
+                    setOffset(newOffset);
+                })
+                .catch(err => {
+                    //Se algo der errado no acesso a api
+                    console.error(err);
+                })
+        //Unmount do component
+        return () => getPokemon();    
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
+    const loadMore = () => {
+        let oldPokeType = pokemonType;
+        let newOffset = offset + perLoad;
+        const newPokeType = allPokeTypes.slice(offset, newOffset);
+        //Aqui eu seleciono os 9 pokemon da respectiva página
+        let updatedPokeType = oldPokeType.concat(newPokeType);
+        setPokemonType(updatedPokeType);
         setOffset(newOffset);
-        setCurrentPage(selectedPage);
     }
-    
-    useEffect(() => {
-        //Pegando o array contendo informações do pokemon do tipo electric na PokeApi usando o axios get. Depois, salvo no estado pokemonType do component.
-        const unsubscribeListener = axios.get('https://pokeapi.co/api/v2/type/grass')
-            .then(res => {
-                //Todos os pokemon do tipo Planta
-                const pokeType = res.data.pokemon;
-                //Aqui eu seleciono os 9 pokemon da respectiva página
-                setPokemonType(pokeType.slice(offset, offset + perPage));
-                //O número de páginas vai ser equivalente a divisão entre a quantidade de pokemon / pela quantidade per page
-                setPageCount(Math.ceil(pokeType.length / perPage))
-            })
-            .catch(err => {
-                //Se algo der errado no acesso a api
-                console.error(err);
-            })
-        return () => unsubscribeListener;    
-    }, [offset, perPage])
 
     return (
         <main className={classes.main}>
@@ -85,19 +88,7 @@ export default function Home() {
                             )
                         })}
                     </section>
-                    <ReactPaginate
-                        previousLabel={"Voltar"}
-                        nextLabel={"Avançar"}
-                        breakLabel={"..."}
-                        breakClassName={"break-me"}
-                        pageCount={pageCount}
-                        marginPagesDisplayed={2}
-                        pageRangeDisplayed={5}
-                        onPageChange={handlePageChange}
-                        containerClassName={"pagination"}
-                        subContainerClassName={"pages pagination"}
-                        activeClassName={"active"}
-                    />
+                    <LoadMore loadMore={loadMore} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={4}>
                     <Shopcar />
