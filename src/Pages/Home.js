@@ -26,9 +26,12 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.down('lg')]: {
             justifyContent: 'center',
         }
+    },
+    lastPokemon: {
+        textAlign: 'center'
     }
 }))
 
@@ -42,6 +45,8 @@ export default function Home() {
     const [offset, setOffset] = useState(0);
     //Padrão de Pokemon mostrados por load
     const [perLoad] = useState(12);
+    //Fim dos pokemon
+    const [end, setEnd] = useState(false);
 
     useEffect(() => {   
         //Pegando o array contendo informações do pokemon do tipo grass na PokeApi usando o axios get. Depois, salvo no estado pokemonType do component.
@@ -70,8 +75,12 @@ export default function Home() {
         const newPokeType = allPokeTypes.slice(offset, newOffset);
         //Aqui eu seleciono os 9 pokemon da respectiva página
         let updatedPokeType = oldPokeType.concat(newPokeType);
-        setPokemonType(updatedPokeType);
-        setOffset(newOffset);
+        if(newPokeType.length === 0) {
+            setEnd(true);
+        } else {
+            setPokemonType(updatedPokeType);
+            setOffset(newOffset);
+        }
     }
 
     return (
@@ -82,13 +91,17 @@ export default function Home() {
                     <section className={classes.pokemonGrid}>
                         {pokemonType.map(pokemon => {
                             return (
-                                <div key={pokemon.pokemon.name}>
+                                <div key={pokemon.pokemon.name} className={classes.pokemonGrid}>
                                     <GrassPokemon pokemon={pokemon} />
                                 </div>
                             )
                         })}
                     </section>
-                    <LoadMore loadMore={loadMore} />
+                    {end ? (
+                        <h2 className={classes.lastPokemon}>Não tem mais Pokemon</h2>
+                    ) : (
+                        <LoadMore loadMore={loadMore} />
+                    )}
                 </Grid>
                 <Grid item xs={12} sm={12} md={4}>
                     <Shopcar />

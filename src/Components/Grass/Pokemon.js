@@ -21,16 +21,29 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: '80%',
         [theme.breakpoints.down('xs')]: {
-            width: '100%'
+            width: '100% !important'
+        },
+        [theme.breakpoints.down('lg')]: {
+            width: '64%'
         },
     },
     pokemonImage: {
         alignSelf: 'center',
-        width: 200
+        width: 200,
+        [theme.breakpoints.down('lg')]: {
+            width: 100
+        },
+    },
+    pokemonInfo: {
+        fontSize: 14,
+        textTransform: 'Capitalize'
     },
     addButtom: {
         borderColor: '#49896F',
-        color: '#49896F'
+        color: '#49896F',
+        [theme.breakpoints.down('lg')]: {
+            fontSize: 12
+        },
     }
 }))
 
@@ -81,9 +94,9 @@ export default function Pokemon({ pokemon }) {
     return (
         <Paper elevation={3} className={classes.pokemonPaper}>
             <img alt={pokemon.pokemon.name} className={classes.pokemonImage} src={pokemonImage} />
-            <h2 className="Capitalize">{pokemonName}</h2>
+            <h2 className={classes.pokemonInfo}>{pokemonName}</h2>
             <Rating name="size-large" value={randomValue} readOnly size="large" />
-            <h3>R$ {priceRandom},00</h3>
+            <h3 className={classes.pokemonInfo}>R$ {priceRandom},00</h3>
             <Buttom variant="outlined" className={classes.addButtom} onClick={() => handleAddToCar(pokemonImage, pokemonName, priceRandom)}>Adicionar ao carrinho</Buttom>
         </Paper>
     )
