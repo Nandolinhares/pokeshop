@@ -50,7 +50,7 @@ export default function Home() {
 
     useEffect(() => {   
         //Pegando o array contendo informações do pokemon do tipo grass na PokeApi usando o axios get. Depois, salvo no estado pokemonType do component.
-        const getPokemon =  axios.get('https://pokeapi.co/api/v2/type/grass')
+        const getPokemon = axios.get('https://pokeapi.co/api/v2/type/grass')
                 .then(res => {
                     //Todos os pokemon do tipo Planta
                     const pokeType = res.data.pokemon;
@@ -65,7 +65,7 @@ export default function Home() {
                     console.error(err);
                 })
         //Unmount do component
-        return () => getPokemon();    
+        return () => getPokemon;    
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

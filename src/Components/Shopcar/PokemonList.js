@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            fontSize: 14,
+            fontSize: 18,
             textAlign: 'center'
         },
     },

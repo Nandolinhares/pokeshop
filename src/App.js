@@ -12,6 +12,7 @@ import Navbar from './Components/Navbar';
 
 //Pages da aplicação
 import Home from './Pages/Home';
+import ShopcarResume from './Pages/ShopcarResume';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route exact path='/resume' component={ShopcarResume} />
         </Switch>
       </Router>
     </Provider>

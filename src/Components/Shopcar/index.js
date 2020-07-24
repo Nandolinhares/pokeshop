@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 //Paper
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 //Carrinho
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 //Redux
@@ -10,6 +9,7 @@ import { useSelector } from 'react-redux';
 
 //Components
 import PokemonList from './PokemonList';
+import BuyButton from './BuyButton';
 
 export default function Shopcar() {
     
@@ -50,7 +50,7 @@ export default function Shopcar() {
                         <h4 className={classes.totalPrice}>Total</h4>
                         <h4 className={classes.totalPrice}>R${totalPrice},00</h4>
                     </div>
-                    <Button variant="contained" className={classes.buyButton}>Comprar</Button>
+                    <BuyButton />
                 </section>
             )}
         </Paper>
@@ -79,16 +79,6 @@ const useStyles = makeStyles((theme) => ({
     },
     carrinho: {
         textAlign: 'center'
-    },
-    buyButton: {
-        backgroundColor: '#49896F',
-        color: '#fff',
-        display: 'flex',
-        margin: '18px auto',
-        width: '80%',
-        '&:hover': {
-            backgroundColor: '#4c9175'
-        }
     },
     totalPriceDiv: {
         display: 'flex',
