@@ -12,3 +12,8 @@ export const updateTotalPrice = (price) => {
 export const removePokemon = (pokemon) => {
     return { type: 'REMOVE_POKEMON_SAGA', payload: pokemon }
 }
+
+//Get old purchase
+export const getOldPurchase = (oldPurchase) => {
+    return { type: 'SET_OLD_PURCHASE_SAGA', payload: oldPurchase}
+}

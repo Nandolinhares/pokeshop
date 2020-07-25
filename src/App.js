@@ -13,17 +13,20 @@ import Navbar from './Components/Navbar';
 //Pages da aplicação
 import Home from './Pages/Home';
 import ShopcarResume from './Pages/ShopcarResume';
+import AuthProvider from './Components/AuthProvider';
 
 function App() {
   return (
     <Provider store={store}>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/resume' component={ShopcarResume} />
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/resume' component={ShopcarResume} />
+          </Switch>
+        </Router>
+      </AuthProvider>
     </Provider>
   );
 }

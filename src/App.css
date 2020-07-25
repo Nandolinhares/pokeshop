@@ -22,6 +22,13 @@ code {
   text-transform: capitalize;
 }
 
+/* Notifications */
+.MuiPopover-paper {
+  margin-top: 56px;
+  width: 340px;
+  margin-left: -2%;
+}
+
 /* Pagination Css */
 .pagination {
   margin: 15px auto;
@@ -51,6 +58,14 @@ code {
 }
 .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
   border-radius: unset
+}
+
+/* Modal */
+.MuiDialog-paper {
+  background-color: #49896F !important;
+}
+.MuiDialogActions-root {
+  justify-content: center !important;
 }
 
 /* Mobile */

@@ -1,13 +1,15 @@
 import {
     SET_POKEMON,
     REMOVE_POKEMON,
-    SET_TOTAL_PRICE
+    SET_TOTAL_PRICE,
+    SET_OLD_PURCHASE
 } from '../types';
 
 //Lista dos Pokemon 
 const initialState = {
     myPokemonList: [],
-    totalPrice: 0
+    totalPrice: 0,
+    oldPurchase: []
 }
 
 export default function(state = initialState, action) {
@@ -28,7 +30,11 @@ export default function(state = initialState, action) {
                 ...state,
                 totalPrice: state.totalPrice + action.payload
             }    
-        
+        case SET_OLD_PURCHASE:
+            return {
+                ...state,
+                oldPurchase: action.payload
+            }
         default: 
             return state;
     }

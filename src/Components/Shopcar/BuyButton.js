@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
 //Redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
     buyButton: {
@@ -27,7 +27,6 @@ export default function BuyButton() {
 
     //Função para comprar os pokemon adicionados ao carrinho
     const handleBuyPokemon = () => {
-        const pokemonList = [];
         //Vou verificar se os Pokemon na minha lista tem o slot > 0.
         if(myPokemonList.length > 0) {
             history.push('/resume');

@@ -6,10 +6,16 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+//Redux
+import { useSelector } from 'react-redux';
 
 import Logo from '../../assets/images/poke.png';
 
 export default function AppBarI({ classes, menuId, handleNotificationsMenuOpen }) {
+
+    //Aqui eu pego o array contendo as compras antigas, salvas no localstorage armazenadas no reducer pelo Auth Provider
+    const { oldPurchase } = useSelector(state => state.user);
+
     return (
         <AppBar position="fixed" className={classes.appbar}>
             <Toolbar>
@@ -44,7 +50,8 @@ export default function AppBarI({ classes, menuId, handleNotificationsMenuOpen }
                     aria-haspopup="true"
                     onClick={handleNotificationsMenuOpen}
                 >
-                    <Badge badgeContent={2} color="secondary">
+                    {/* O número de notifications vai ser equivalente ao tamanho do array de oldPurchase */}
+                    <Badge badgeContent={oldPurchase.length} color="secondary">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
