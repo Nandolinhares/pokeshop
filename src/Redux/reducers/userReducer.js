@@ -4,7 +4,9 @@ import {
     SET_TOTAL_PRICE,
     SET_OLD_PURCHASE,
     CHANGE_THEME,
-    CLEAR_SHOP_CAR
+    CLEAR_SHOP_CAR,
+    SET_ALL_POKEMON,
+    SET_SEARCH_RESULT
 } from '../types';
 
 //Lista dos Pokemon 
@@ -12,7 +14,9 @@ const initialState = {
     myPokemonList: [],
     totalPrice: 0,
     oldPurchase: [],
-    theme: 'grass'
+    theme: 'grass',
+    allPokemon: [],
+    searchParams: ""
 }
 
 export default function(state = initialState, action) {
@@ -48,7 +52,17 @@ export default function(state = initialState, action) {
                 ...state,
                 myPokemonList: [],
                 totalPrice: 0
-            }        
+            }
+        case SET_ALL_POKEMON:
+            return {
+                ...state,
+                allPokemon: action.payload
+            }
+        case SET_SEARCH_RESULT:
+            return {
+                ...state,
+                searchParams: action.payload
+            }                
         default: 
             return state;
     }

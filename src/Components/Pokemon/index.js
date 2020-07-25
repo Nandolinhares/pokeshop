@@ -19,8 +19,8 @@ export default function Pokemon({ pokemon }) {
 
     //Hook do Material UI para styles
     const classes = useStyles();
-    const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.pokemon.url.split('/')[6]}.png`;
-    const pokemonName = pokemon.pokemon.name;
+    const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split('/')[6]}.png`;
+    const pokemonName = pokemon.name;
     const [randomValue] = useState(parseInt(Math.random() * (5 - 3) + 3)); //Random value para o Rating
     const [priceRandom] = useState(parseInt(Math.random() * 200));
     
@@ -58,7 +58,7 @@ export default function Pokemon({ pokemon }) {
     /* Como as urls das imagens dos Pokemon são as mesmas e cada Pokemon tem um número específico, eu capturo o número usando o split no atributo url e posição 6 do array gerado. Assim, reaproveiro a mesma url, alterando somente os números de cada Pokemon, para pegar sua imagem. */
     return (
         <Paper elevation={3} className={classes.pokemonPaper}>
-            <img alt={pokemon.pokemon.name} className={classes.pokemonImage} src={pokemonImage} />
+            <img alt={pokemon.name} className={classes.pokemonImage} src={pokemonImage} />
             <h2 className={classes.pokemonInfo}>{pokemonName}</h2>
             <Rating name="size-large" value={randomValue} readOnly size="large" />
             <h3 className={classes.pokemonInfo}>R$ {priceRandom},00</h3>

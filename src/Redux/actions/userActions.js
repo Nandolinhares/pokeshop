@@ -27,3 +27,13 @@ export function changeTheme(theme) {
 export const clearShopCar = () => {
     return { type: 'CLEAR_SHOP_CAR' }
 }
+
+//Busca
+export const setAllPokemon = (allPokemon) => {
+    return { type: 'SET_ALL_POKEMON', payload: allPokemon }
+}
+
+//Resultado da busca
+export const searchPokemon = (params) => {
+    return { type: 'SET_SEARCH_RESULT_SAGA', payload: params }
+}

@@ -8,12 +8,17 @@ import Pokemon from '../Pokemon';
 import Shopcar from '../Shopcar';
 import LoadMore from '../LoadMore';
 import PokemonType from '../PokemonType';
+import SearchResult from '../Search/SearchResult';
 //Redux
 import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
     title: {
         textAlign: 'center'
+    },
+    searchResult: {
+        display: 'flex',
+        flexWrap: 'wrap'
     },
     pokemonTypeGrid: {
         display: 'flex',
@@ -48,6 +53,9 @@ export default function HomeGrid({ pokemonType, end, loadMore }) {
 
     return (
         <Grid container spacing={2}>
+                <Grid item xs={12} sm={12} className={classes.searchResult}>
+                    <SearchResult />
+                </Grid>
                 <Grid item xs={12} sm={12} className={classes.pokemonTypeGrid}>
                     <PokemonType />
                 </Grid>
@@ -59,7 +67,7 @@ export default function HomeGrid({ pokemonType, end, loadMore }) {
                         {pokemonType.map(pokemon => {
                             return (
                                 <div key={pokemon.pokemon.name} className={classes.pokemonGrid}>
-                                    <Pokemon pokemon={pokemon} />
+                                    <Pokemon pokemon={pokemon.pokemon} />
                                 </div>
                             )
                         })}

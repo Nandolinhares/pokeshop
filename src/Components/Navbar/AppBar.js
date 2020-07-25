@@ -2,14 +2,15 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 //Redux
 import { useSelector } from 'react-redux';
 
+//Components
 import Logo from '../../assets/images/poke.png';
+import SearchBar from '../../Components/Search/SearchBar';
 
 export default function AppBarI({ classes, menuId, handleNotificationsMenuOpen }) {
 
@@ -29,14 +30,8 @@ export default function AppBarI({ classes, menuId, handleNotificationsMenuOpen }
                     <div className={classes.searchIcon}>
                         <SearchIcon />
                     </div>
-                    <InputBase
-                        placeholder="Buscar"
-                        classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput,
-                        }}
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
+                    {/* Barra de busca */}
+                    <SearchBar classes={classes} />
                 </div>
                 {/* Grow */}
                 <div className={classes.grow} />

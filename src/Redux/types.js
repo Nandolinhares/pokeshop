@@ -5,6 +5,8 @@ export const SET_TOTAL_PRICE = 'SET_TOTAL_PRICE';
 export const SET_OLD_PURCHASE = 'SET_OLD_PURCHASE';
 export const CHANGE_THEME = 'CHANGE_THEME';
 export const CLEAR_SHOP_CAR = 'CLEAR_SHOP_CAR';
+export const SET_ALL_POKEMON = 'SET_ALL_POKEMON';
+export const SET_SEARCH_RESULT = 'SET_SEARCH_RESULT';
 
 //UI
 export const LOADING_UI = 'LOADING_UI';
