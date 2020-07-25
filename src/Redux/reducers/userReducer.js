@@ -2,14 +2,17 @@ import {
     SET_POKEMON,
     REMOVE_POKEMON,
     SET_TOTAL_PRICE,
-    SET_OLD_PURCHASE
+    SET_OLD_PURCHASE,
+    CHANGE_THEME,
+    CLEAR_SHOP_CAR
 } from '../types';
 
 //Lista dos Pokemon 
 const initialState = {
     myPokemonList: [],
     totalPrice: 0,
-    oldPurchase: []
+    oldPurchase: [],
+    theme: 'grass'
 }
 
 export default function(state = initialState, action) {
@@ -35,6 +38,17 @@ export default function(state = initialState, action) {
                 ...state,
                 oldPurchase: action.payload
             }
+        case CHANGE_THEME:
+            return {
+                ...state,
+                theme: action.payload
+            }
+        case CLEAR_SHOP_CAR:
+            return {
+                ...state,
+                myPokemonList: [],
+                totalPrice: 0
+            }        
         default: 
             return state;
     }

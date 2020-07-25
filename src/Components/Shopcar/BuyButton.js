@@ -2,11 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
-//Redux
-import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
-    buyButton: {
+    buyGrassButton: {
         backgroundColor: '#49896F',
         color: '#fff',
         display: 'flex',
@@ -15,15 +13,23 @@ const useStyles = makeStyles({
         '&:hover': {
             backgroundColor: '#4c9175'
         }
+    },
+    buyWaterButton: {
+        backgroundColor: '#42a5de',
+        color: '#fff',
+        display: 'flex',
+        margin: '18px auto',
+        width: '80%',
+        '&:hover': {
+            backgroundColor: '#42a6df'
+        }
     }
 })
 
-export default function BuyButton() {
+export default function BuyButton({ myPokemonList, theme }) {
     //Hook para navegação
     const history = useHistory();
     const classes = useStyles();
-    //Pegando os pokemon adicionados
-    const { myPokemonList } = useSelector(state => state.user);
 
     //Função para comprar os pokemon adicionados ao carrinho
     const handleBuyPokemon = () => {
@@ -37,6 +43,6 @@ export default function BuyButton() {
     }
 
     return (
-        <Button variant="contained" className={classes.buyButton} onClick={handleBuyPokemon}>Comprar</Button>
+        <Button variant="contained" className={theme === 'grass' ? classes.buyGrassButton : classes.buyWaterButton} onClick={handleBuyPokemon}>Comprar</Button>
     )
 }

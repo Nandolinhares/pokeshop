@@ -11,7 +11,7 @@ export default function PokemonList({ pokemon }) {
     const classes = useStyles();
     const dispatch = useDispatch();
     //Pegando a lista dos pokemon no carrinho
-    const { myPokemonList } = useSelector(state => state.user);
+    const { myPokemonList, theme } = useSelector(state => state.user);
 
     //Função para remover o Pokemon da lista
     const removePokemonFromList = () => {
@@ -36,7 +36,7 @@ export default function PokemonList({ pokemon }) {
     }
 
     return (
-        <section className={classes.pokemonList}>
+        <section className={theme === 'grass' ? classes.pokemonGrassList : classes.pokemonWaterList}>
             <img alt={pokemon.pokemonName} src={pokemon.pokemonImage} className={classes.imagePokemon} />
             <h3 className={classes.pokemonInfo}>{pokemon.pokemonName}</h3>
             <h3 className={classes.pokemonInfo}>R${pokemon.price},00</h3>
@@ -49,11 +49,27 @@ export default function PokemonList({ pokemon }) {
 }
 
 const useStyles = makeStyles((theme) => ({
-    pokemonList: {
+    //GrassList
+    pokemonGrassList: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         border: '1px solid #49896F',
+        marginTop: 18,
+        padding: 18,
+        [theme.breakpoints.down('xs')]: {
+            flexDirection: 'column',
+        },
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+        },
+    },
+    //WaterList
+    pokemonWaterList: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        border: '1px solid #42a5de',
         marginTop: 18,
         padding: 18,
         [theme.breakpoints.down('xs')]: {

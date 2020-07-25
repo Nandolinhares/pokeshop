@@ -15,7 +15,7 @@ import { addPokemonToCar, updateTotalPrice } from '../../Redux/actions/userActio
 export default function Pokemon({ pokemon }) {
     //Hook do redux 
     const dispatch = useDispatch();
-    const { myPokemonList } = useSelector(state => state.user);
+    const { myPokemonList, theme } = useSelector(state => state.user);
 
     //Hook do Material UI para styles
     const classes = useStyles();
@@ -62,7 +62,7 @@ export default function Pokemon({ pokemon }) {
             <h2 className={classes.pokemonInfo}>{pokemonName}</h2>
             <Rating name="size-large" value={randomValue} readOnly size="large" />
             <h3 className={classes.pokemonInfo}>R$ {priceRandom},00</h3>
-            <Buttom variant="outlined" className={classes.addButtom} onClick={() => handleAddToCar(pokemonImage, pokemonName, priceRandom)}>Adicionar ao carrinho</Buttom>
+            <Buttom variant="outlined" className={theme === 'grass' ? classes.grassAddButton : classes.waterAddButton} onClick={() => handleAddToCar(pokemonImage, pokemonName, priceRandom)}>Adicionar ao carrinho</Buttom>
         </Paper>
     )
 }
@@ -94,9 +94,16 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 14,
         textTransform: 'Capitalize'
     },
-    addButtom: {
+    grassAddButton: {
         borderColor: '#49896F',
         color: '#49896F',
+        [theme.breakpoints.down('lg')]: {
+            fontSize: 12
+        },
+    },
+    waterAddButton: {
+        borderColor: '#42a5de',
+        color: '#42a5de',
         [theme.breakpoints.down('lg')]: {
             fontSize: 12
         },

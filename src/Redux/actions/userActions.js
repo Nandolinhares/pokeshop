@@ -17,3 +17,13 @@ export const removePokemon = (pokemon) => {
 export const getOldPurchase = (oldPurchase) => {
     return { type: 'SET_OLD_PURCHASE_SAGA', payload: oldPurchase}
 }
+
+//Mudar Tema
+export function changeTheme(theme) {
+    return { type: 'CHANGE_THEME', payload: theme }
+}
+
+//Limpar Carrinho
+export const clearShopCar = () => {
+    return { type: 'CLEAR_SHOP_CAR' }
+}

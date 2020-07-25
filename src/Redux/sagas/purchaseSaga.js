@@ -9,6 +9,7 @@ function* getOldPurchaseSaga(action) {
     }
     catch(err) {
         console.error(err);
+        yield put({ type: 'CLEAR_LOADING_UI' });
     }
 }
 

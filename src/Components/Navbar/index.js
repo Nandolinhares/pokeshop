@@ -55,8 +55,13 @@ const useStyles = makeStyles((theme) => ({
     },
   
     // Background Navbar
-    appbar: {
-      backgroundColor: '#49896F'
+    //Grass
+    appbarGrass: {
+      backgroundColor: '#49896F' 
+    },
+    //Water
+    appbarWater: {
+      backgroundColor: '#42a5de'
     },
     
     //Logo

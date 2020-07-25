@@ -14,10 +14,10 @@ import Logo from '../../assets/images/poke.png';
 export default function AppBarI({ classes, menuId, handleNotificationsMenuOpen }) {
 
     //Aqui eu pego o array contendo as compras antigas, salvas no localstorage armazenadas no reducer pelo Auth Provider
-    const { oldPurchase } = useSelector(state => state.user);
+    const { oldPurchase, theme } = useSelector(state => state.user);
 
     return (
-        <AppBar position="fixed" className={classes.appbar}>
+        <AppBar position="fixed" className={theme === 'grass' ? classes.appbarGrass : classes.appbarWater}>
             <Toolbar>
                 {/* Logo da Pokeshop */}
                 <section className={classes.logo}>

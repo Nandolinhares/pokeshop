@@ -15,7 +15,7 @@ export default function Shopcar() {
     
     const classes = useStyles();
     //Hook do Redux para pegar o valor dos Pokemon adicionados ao carrinho
-    const { myPokemonList, totalPrice } = useSelector(state => state.user);
+    const { myPokemonList, totalPrice, theme } = useSelector(state => state.user);
     //Verificar se a lista de compras está vazia
     const [isShoppingEmpty, setIsShoppingEmpty] = useState(true);
 
@@ -50,7 +50,7 @@ export default function Shopcar() {
                         <h4 className={classes.totalPrice}>Total</h4>
                         <h4 className={classes.totalPrice}>R${totalPrice},00</h4>
                     </div>
-                    <BuyButton />
+                    <BuyButton myPokemonList={myPokemonList} theme={theme} />
                 </section>
             )}
         </Paper>

@@ -11,7 +11,8 @@ import store from './Redux/store';
 import Navbar from './Components/Navbar';
 
 //Pages da aplicação
-import Home from './Pages/Home';
+import HomeGrass from './Pages/HomeGrass';
+import HomeWater from './Pages/HomeWater';
 import ShopcarResume from './Pages/ShopcarResume';
 import AuthProvider from './Components/AuthProvider';
 
@@ -22,7 +23,9 @@ function App() {
         <Router>
           <Navbar />
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' component={HomeGrass} />
+            <Route exact path='/grass' component={HomeGrass} />
+            <Route exact path='/water' component={HomeWater} />
             <Route exact path='/resume' component={ShopcarResume} />
           </Switch>
         </Router>
