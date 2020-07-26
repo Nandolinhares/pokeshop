@@ -10,7 +10,9 @@ import LoadMore from '../LoadMore';
 import PokemonType from '../PokemonType';
 import SearchResult from '../Search/SearchResult';
 //Redux
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+//Actions
+import { setAllPokemon } from '../../Redux/actions/userActions';
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -38,18 +40,38 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function HomeGrid({ pokemonType, end, loadMore }) {
+    
+    const dispatch = useDispatch();
 
     const classes = useStyles();
     const [themeName, setThemeName] = useState("Planta");
+    const [pokemonState, setPokemonState] = useState([])
     const { theme } = useSelector(state => state.user);
 
     useEffect(() => {
+        //Aqui eu defino qual é o tema escolhido pelo usuário e adiciono os valores de ramdom do rating e do price
         if(theme === 'grass') {
             setThemeName("Planta");
+            pokemonType.forEach(pokemon => {
+                pokemon.pokemon.rating = parseInt(Math.random() * (5 - 3) + 3);
+                pokemon.pokemon.price = parseInt(Math.random() * 200);
+            })
+            //Salvando os Pokemon no estado
+            setPokemonState(pokemonType);
+            //Salvar todos Pokemon no reducer para usar na busca
+            dispatch(setAllPokemon(pokemonType));
         } else {
             setThemeName("Água");
+            pokemonType.forEach(pokemon => {
+                pokemon.pokemon.rating = parseInt(Math.random() * (5 - 3) + 3);
+                pokemon.pokemon.price = parseInt(Math.random() * 200);
+            })
+            //Salvando os Pokemon no estado
+            setPokemonState(pokemonType);
+            //Salvar todos Pokemon no reducer para usar na busca
+            dispatch(setAllPokemon(pokemonType));
         }
-    }, [theme])
+    }, [theme, pokemonType, dispatch])
 
     return (
         <Grid container spacing={2}>
@@ -64,7 +86,7 @@ export default function HomeGrid({ pokemonType, end, loadMore }) {
                     <h1 className={classes.title}>Pokemon do tipo {themeName}</h1>
                     {/* Os Pokemon do tipo escolhido */}
                     <section className={classes.pokemonGrid}>
-                        {pokemonType.map(pokemon => {
+                        {pokemonState.map(pokemon => {
                             return (
                                 <div key={pokemon.pokemon.name} className={classes.pokemonGrid}>
                                     <Pokemon pokemon={pokemon.pokemon} />

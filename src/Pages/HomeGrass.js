@@ -5,7 +5,7 @@ import axios from 'axios';
 //Redux
 import { useDispatch } from 'react-redux';
 //Actions
-import { changeTheme, clearShopCar, setAllPokemon } from '../Redux/actions/userActions';
+import { changeTheme, clearShopCar } from '../Redux/actions/userActions';
 
 //Components
 import HomeGrid from '../Components/HomeGrid';
@@ -44,8 +44,6 @@ export default function Home() {
                 //Aqui eu seleciono os 12 pokemon da respectiva página
                 setPokemonType(pokeType.slice(offset, newOffset));
                 setOffset(newOffset);
-                //Salvar todos Pokemon no reducer para usar na busca
-                dispatch(setAllPokemon(pokeType));
             })
             .catch(err => {
                 //Se algo der errado no acesso a api

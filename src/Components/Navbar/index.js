@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
       //Barra de busca quando o tamanho da tela for sm +
       [theme.breakpoints.up('sm')]: {
         display: 'none'
-      },
+      }
     },
     //Ícone da busca
     searchIcon: {
