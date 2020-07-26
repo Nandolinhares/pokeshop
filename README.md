@@ -1,4 +1,18 @@
 ![poke](https://user-images.githubusercontent.com/15971419/88488950-63226100-cf67-11ea-8ef8-3dece7cac70c.png) ![pikach(1)](https://user-images.githubusercontent.com/15971419/88489051-3ae73200-cf68-11ea-8221-0e7be9fe3e2d.png)
+
+## Executar
+
+Para acessar a Pokeshop, você tem 2 maneiras. Uma é a internet e a outra é o modo local. 
+
+### Acessar Online
+A Pokeshop foi hospedada usando o Hosting do Firebase. Por isso, acesse https://pokeshop-db53e.web.app/ 
+
+### Acessar Local
+
+### `git clone`
+### `yarn install`
+### `yarn start`
+
 ## Bem Vindos a Pokeshop - Nossa loja Pokemon
 
 Olá, meu nome é Fernando e venho apresentar a minha solução para o desafio proposto. Ela se chama Pokeshop. Nela, eu foquei em 2 lojas do tipo (Planta e Água).
@@ -49,6 +63,20 @@ Ao acessar, poderá ser visto todas as compras já feitas no site, mesmo se atua
 ![image](https://user-images.githubusercontent.com/15971419/88489857-7a644d00-cf6d-11ea-9745-166828a66eed.png)
 
 ![image](https://user-images.githubusercontent.com/15971419/88489863-97991b80-cf6d-11ea-859f-2d1a2876e303.png)
+
+## Busca
+Ao digitar o nome do Pokemon, serão mostrados em tempo real os Pokemon relacionados com o que foi digitado. Eu criei uma solução bem manual a principío. Utilizei o onChange no input e usei o Redux para receber os parâmetros de pesquisa. Usei a função startsWith(searchParams), para fazer o match do que foi digitado com os Pokemon coletados na PokeApi.
+
+![image](https://user-images.githubusercontent.com/15971419/88490110-8224f100-cf6f-11ea-9864-a2cfbc8eef55.png)
+
+## Responsividade
+A Pokeshop foi planejada para os diversos tamanhos de tela e dispositivos.
+
+### Celulares
+![image](https://user-images.githubusercontent.com/15971419/88489987-93213280-cf6e-11ea-9f5c-c53c76aa3aa5.png)
+
+### Tablets
+![image](https://user-images.githubusercontent.com/15971419/88490011-bea41d00-cf6e-11ea-9eaa-ccc4ed0e912a.png)
 
 ### `yarn start`
 
