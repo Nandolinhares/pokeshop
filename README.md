@@ -9,7 +9,7 @@ A Pokeshop foi hospedada usando o Hosting do Firebase. Por isso, acesse https://
 
 ### Acessar Local
 
-### `git clone`
+### `git clone https://github.com/Nandolinhares/pokeshop.git`
 ### `yarn install`
 ### `yarn start`
 
