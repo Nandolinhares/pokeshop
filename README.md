@@ -1,8 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![poke](https://user-images.githubusercontent.com/15971419/88488950-63226100-cf67-11ea-8ef8-3dece7cac70c.png) ![pikach(1)](https://user-images.githubusercontent.com/15971419/88489051-3ae73200-cf68-11ea-8221-0e7be9fe3e2d.png)
+## Bem Vindos a Pokeshop - Nossa loja Pokemon
 
-## Available Scripts
+Olá, meu nome é Fernando e venho apresentar a minha solução para o desafio proposto. Ela se chama Pokeshop. Nela, eu foquei em 2 lojas do tipo (Planta e Água).
+Seguindo o modle da B2W Digital, eu fiz uma base de código pricipal, aonde as 2 lojas se diferem em estilo. Para captar os dados, usei a PokeApi.
 
-In the project directory, you can run:
+## Funcionalidades
+ - Na Pokeshop, o usuário poderá ver conhecer todos os Pokemon a venda, cada um com seus respectivos atributos. São eles: Imagem, nome, avaliação e preço.
+Sendo que tanto a avaliação quanto o preço são determinados aleatoriamente ao carregar a página.
+
+- O usuário poderá adicionar os Pokemon ao carrinho de compras e removê-lo. Se adicionar o mesmo Pokemon mais de uma vez, o atributo quantidade será incrementado.
+ Da mesma forma, ao remover, se houver mais de um, irá remover a quantidade que quiser.
+ 
+- O usuário poderá buscar pelo Pokemon que deseja na busca em tempo real na barra de busca e adicionar ao carrinho de lá mesmo, se quiser.
+
+- O preço total é alterado a cada alteração no carrinho de compras. Ou seja, tanto adições quanto subtrações de Pokemon serão contabilizados, para garantir a segurança do valor final.
+
+- Ao clicar em comprar, o usuário é redirecionado para a página Resumo do carrinho, onde poderá ver todos os Pokemon selecionados, ver o preço total e poderá finalizar a compra. Além disso, ele ainda poderá remover algum Pokemon do carrinho, se mudar de ideia e continuar para compra.
+
+- Ao finalizar a compra, um modal será aberto mostrando agradecimentos e após fechar o usuário ser redirecionado para a página de origem.
+
+- Após isso, o usuário poderá notar que o ícone de Notificações no header apresentará algo novo. Quando clicar, poderá ver as compras que já fez no site. Basicamento vai mostrar um array contendo os objetos(as compras) que já foram efetuadas no site. 
+ 
+ 
 
 ### `yarn start`
 
