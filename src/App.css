@@ -60,7 +60,7 @@ code {
   border-radius: unset
 }
 
-/* Modal */
+/* Modal de confirmação da compra*/
 .MuiDialog-paper {
   background-color: #49896F !important;
 }
@@ -86,3 +86,12 @@ code {
     margin-top: 0px 
   }
 } 
+
+/* Tamanho do searchbar */
+.makeStyles-inputRoot-10 {
+  width: 100% !important;
+}
+
+.makeStyles-inputInput-11 {
+  width: 100% !important;
+}

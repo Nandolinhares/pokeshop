@@ -92,6 +92,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'none'
       },
 
+      
       //Barra de busca quando o tamanho da tela for sm +
       [theme.breakpoints.up('sm')]: {
         width: '64%',
