@@ -78,5 +78,3 @@ A Pokeshop foi planejada para os diversos tamanhos de tela e dispositivos.
 ### Tablets
 ![image](https://user-images.githubusercontent.com/15971419/88490011-bea41d00-cf6e-11ea-9eaa-ccc4ed0e912a.png)
 
-### `yarn start`
-
