@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-export default function HomeGrid({ pokemonType, end, loadMore }) {
+export default function HomeGrid({ pokemonType, allPokeTypes, end, loadMore }) {
     
     const dispatch = useDispatch();
 
@@ -52,24 +52,34 @@ export default function HomeGrid({ pokemonType, end, loadMore }) {
         //Aqui eu defino qual é o tema escolhido pelo usuário e adiciono os valores de ramdom do rating e do price
         if(theme === 'grass') {
             setThemeName("Planta");
-            pokemonType.forEach(pokemon => {
-                pokemon.pokemon.rating = parseInt(Math.random() * (5 - 3) + 3);
-                pokemon.pokemon.price = parseInt(Math.random() * 200);
+            //Aqui eu percorro todos os Pokemon e os Pokemon que estão aparecendo na tela. Defino o preços que estão em todos os Pokemon iniciais e aplico nos que vão aparecer na tela
+            allPokeTypes.forEach(poke => {
+                pokemonType.forEach(pokemon => {
+                    if(pokemon.pokemon.name === poke.pokemon.name) {
+                        poke.pokemon.rating = pokemon.pokemon.rating;
+                        poke.pokemon.price = pokemon.pokemon.price;
+                    }
+                })
             })
             //Salvando os Pokemon no estado
             setPokemonState(pokemonType);
             //Salvar todos Pokemon no reducer para usar na busca
-            dispatch(setAllPokemon(pokemonType));
+            dispatch(setAllPokemon(allPokeTypes));
         } else {
             setThemeName("Água");
-            pokemonType.forEach(pokemon => {
-                pokemon.pokemon.rating = parseInt(Math.random() * (5 - 3) + 3);
-                pokemon.pokemon.price = parseInt(Math.random() * 200);
+            //Aqui eu percorro todos os Pokemon e os Pokemon que estão aparecendo na tela. Defino o preços que estão em todos os Pokemon iniciais e aplico nos que vão aparecer na tela
+            allPokeTypes.forEach(poke => {
+                pokemonType.forEach(pokemon => {
+                    if(pokemon.pokemon.name === poke.pokemon.name) {
+                        poke.pokemon.rating = pokemon.pokemon.rating;
+                        poke.pokemon.price = pokemon.pokemon.price;
+                    }
+                })
             })
             //Salvando os Pokemon no estado
             setPokemonState(pokemonType);
             //Salvar todos Pokemon no reducer para usar na busca
-            dispatch(setAllPokemon(pokemonType));
+            dispatch(setAllPokemon(allPokeTypes));
         }
     }, [theme, pokemonType, dispatch])
 
@@ -77,7 +87,7 @@ export default function HomeGrid({ pokemonType, end, loadMore }) {
         <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} className={classes.searchResult}>
                     <SearchResult />
-                </Grid>
+                </Grid> 
                 <Grid item xs={12} sm={12} className={classes.pokemonTypeGrid}>
                     <PokemonType />
                 </Grid>

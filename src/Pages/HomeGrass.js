@@ -38,6 +38,11 @@ export default function Home() {
             .then(res => {
                 //Todos os pokemon do tipo Planta
                 const pokeType = res.data.pokemon;
+                //Definindo o rating e os preços aleatórios no início
+                pokeType.forEach(poke => {
+                    poke.pokemon.rating = parseInt(Math.random() * (5 - 3) + 3);
+                    poke.pokemon.price = parseInt(Math.random() * 200);
+                })
                 setAllPokeTypes(pokeType);
                 //O novo offset será igual ao valor do offset inicial = 0 + a quantidade de Pokemon carregado por vez
                 const newOffset = offset + perLoad;
@@ -78,7 +83,7 @@ export default function Home() {
 
     return (
         <main className={classes.main}>
-            <HomeGrid pokemonType={pokemonType} end={end} loadMore={loadMore} />
+            <HomeGrid pokemonType={pokemonType} allPokeTypes={allPokeTypes} end={end} loadMore={loadMore} />
         </main>
     )
 }
